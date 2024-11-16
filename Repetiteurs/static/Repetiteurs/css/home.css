@@ -1,0 +1,79 @@
+.image-container {
+  position: relative;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.bg-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.text-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btn {
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background-color: #1e96fb;
+}
+.card-img-topp{
+height: 10rem
+}
+.card.shadow{
+border-radius:20px
+}
+.slide-in {
+  position: relative;
+  left: -100%; /* Déplace le texte initialement hors de la vue */
+  animation: slideIn 1s forwards; /* Animation de défilement */
+}
+
+@keyframes slideIn {
+  from {
+      left: -100%; /* Commence à gauche de la vue */
+  }
+  to {
+      left: 0; /* Se déplace vers la droite pour entrer dans la vue */
+  }
+}
+
+.container::-webkit-scrollbar {
+  width: 10px; /* Largeur de la barre de défilement */
+}
+
+.container::-webkit-scrollbar-thumb {
+  background-color: #007bff; /* Couleur de la barre de défilement */
+  border-radius: 10px; /* Style de la barre de défilement */
+}
+
+.container::-webkit-scrollbar-track {
+  background: transparent; /* Couleur de fond de la barre de défilement */
+}
+
+h3 {
+  font-family: 'Arial', sans-serif; /* Choisissez une police de caractères appropriée */
+  font-size: 32px; /* Taille de police généreuse pour le titre */
+  font-weight: bold; /* Mettez en gras pour plus de présence */
+  color: #333; /* Couleur du texte sombre pour une bonne lisibilité */
+  text-align: center; /* Centrez le titre */
+  margin-top: 50px; /* Ajoutez un peu d'espace en haut pour la séparation */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ajoutez une ombre portée subtile */
+  /* Ajoutez d'autres styles selon vos préférences */
+}
+.card.rounded-card.container{
+border: #007bff;
+}
+

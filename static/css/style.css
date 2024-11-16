@@ -1,0 +1,74 @@
+/* style pour loging.html */
+
+/* CSS spécifique à la page de connexion */
+
+/* Corps de la page de connexion */
+body.login-page {
+    background-color: #f0f8ff; /* Bleu clair pour l'arrière-plan */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container principal du formulaire de connexion */
+.login-page .login-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Carte de connexion */
+.login-page .login-card {
+    padding: 20px;
+}
+
+/* Titre "Connexion" */
+.login-page .login-title {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #072ac8; /* Bleu pour le titre */
+}
+
+/* Messages d'erreur */
+.login-page .login-message {
+    color: red;
+    margin-bottom: 15px;
+}
+
+/* Formulaire de connexion */
+.login-page .login-form .form-group {
+    margin-bottom: 15px;
+}
+
+/* Bouton "Se connecter" */
+.login-page .login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #072ac8; /* Bleu pour le bouton */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.login-page .login-button:hover {
+    background-color: #072ac8;
+}
+
+.login-page .login-form input:focus {
+    border-color: #072ac8;
+    box-shadow: 0 0 5px #072ac8;
+    outline: none;
+}
+
+
+

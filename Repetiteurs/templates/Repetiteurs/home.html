@@ -1,0 +1,231 @@
+{% extends "Repetiteurs/base.html" %}
+{% load static %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static "Repetiteurs/css/home.css"%}">
+<div class="  text-center pict">
+
+  <div class="mb-1" style="background-image: url('https://media.istockphoto.com/id/950614324/fr/photo/fille-de-l%C3%A9cole-d%C3%A9criture-en-classe.jpg?s=612x612&w=0&k=20&c=sJy5ky91FqwBvhmG2se4ZRHtPJx7sSJPCwbMe7R0GtE='); background-size: cover; background-position: center; width: 100%; height: 500px;">
+    <div class="marquee">
+      <span>Nous vous proposons des solutions pour une année scolaire très réussie !</span>
+  </div>
+  <a href="{% url "Repetiteurs:que_cherchez_vous" %}?source=primaire" class="col-md-3 mt-3 text-decoration-none">
+    <div class="row">
+      <div class="">
+          <div class="card rounded-card container" style="width: 12rem; height:12rem; border: 4px solid ; border-radius: 20px; ">
+              <img class="card-img-top mt-2" src="{% static 'Repetiteurs/medias/IMAGE1 (2).jpg' %}" alt="Card image cap" style="border-radius: 30px;" >
+              <div class="card-body">
+                  <p class="card-text" style="
+                font-family: 'Arial', sans-serif; /* Choisissez une police de caractères appropriée */
+                font-size: 14px; /* Taille de police généreuse pour le titre */
+                font-weight: bold; /* Mettez en gras pour plus de présence */
+                color: #034aa7; /* Couleur du texte sombre pour une bonne lisibilité */
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ajoutez une ombre portée subtile */
+                /* Ajoutez d'autres styles selon vos préférences */">Je suis élève du primaire</p>
+              </div>
+          </div>
+      </div>
+  </a>
+    <a href="{% url "Repetiteurs:que_cherchez_vous" %}?source=secondaire"  class="col-md-3 mt-3 text-decoration-none">
+       <div>
+      <div class="card rounded-card container" style="width:12rem; height:12rem; border: 4px solid; border-radius: 20px;">
+          <img class="card-img-top mt-2" src="{% static 'Repetiteurs/medias/IMAGE1 (1).jpg' %}" alt="Card image cap"  style="border-radius: 30px;">
+          <div class="card-body">
+              <p class="card-text" style="
+
+              font-family: 'Arial', sans-serif; /* Choisissez une police de caractères appropriée */
+              font-size: 14px; /* Taille de police généreuse pour le titre */
+              font-weight: bold; /* Mettez en gras pour plus de présence */
+              color: #034aa7; /* Couleur du texte sombre pour une bonne lisibilité */
+              text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ajoutez une ombre portée subtile */
+              /* Ajoutez d'autres styles selon vos préférences */">Je suis élève du secondaire</p>
+          </div>
+      </div>
+  </div> 
+</a>
+    
+  <a href="{% url "Repetiteurs:que_cherchez_vous" %}?source=etudiant"  class="col-md-3 mt-3 text-decoration-none">
+    <div>
+      <div class="card rounded-card container" style="width:12rem;height:12rem; border: 4px solid; border-radius: 20px;" >
+          <img class="card-img-top mt-2 " src="{% static 'Repetiteurs/medias/IMAGE4.png' %}" alt="Card image cap" style="border-radius: 30px;">
+          <div class="card-body">
+              <p class="card-text" style="
+              font-family: 'Arial', sans-serif; /* Choisissez une police de caractères appropriée */
+              font-size: 14px; /* Taille de police généreuse pour le titre */
+              font-weight: bold; /* Mettez en gras pour plus de présence */
+              color: #082ac8; /* Couleur du texte sombre pour une bonne lisibilité */
+              text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ajoutez une ombre portée subtile */
+              /* Ajoutez d'autres styles selon vos préférences */">je suis au superieur</p>
+          </div>
+      </div>
+  </div>
+     </a>
+    <a href="{% url "Repetiteurs:que_cherchez_vous" %}?source=enseignant"  class="col-md-3 mt-3 text-decoration-none">
+      <div>
+        <div class="card rounded-card container" style="width: 12rem; height:12rem; border: 4px solid ; border-radius: 20px;">
+            <img class="card-img-top mt-2" src="{% static 'Repetiteurs/medias/IMAGE1 (3).jpg' %}" alt="Card image cap" style="border-radius: 30px;">
+            <div class="card-body">
+                <p class="card-text" style="
+                font-family: 'Arial', sans-serif; /* Choisissez une police de caractères appropriée */
+                font-size: 14px; /* Taille de police généreuse pour le titre */
+                font-weight: bold; /* Mettez en gras pour plus de présence */
+                color: #034aa7; /* Couleur du texte sombre pour une bonne lisibilité */
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ajoutez une ombre portée subtile */
+                /* Ajoutez d'autres styles selon vos préférences */">Je recherche un élève</p>
+            </div>
+        </div>
+    </div>
+    
+    </a>
+    </div>
+</div>
+
+</div>
+  <dive class=" mb-2 mt-2 container">
+    <style>
+  
+    </style>
+
+    <h3 class="slide-in">Quels sont les éléments susceptibles de vous intéresser?</h3>
+</dive>
+
+    <dive class="mb-4 mt-5 container">
+      <style>
+        
+      </style>
+  
+      <div class="image-container" style="display: flex; justify-content: center; align-items: center; width: 100%; height: 500px;">
+          <div class="text-overlay"><a href="#" class="btn btn-warning">Visitez</a></div>
+          <img class="bg-image" src="{% static 'Repetiteurs/medias/portrait-male-teacher-helping-young-african-american-schoolgirl-struggling-with-task-class-scaled.jpg'%}" alt="Image 1">
+          
+          <div class="text-overlay"><a href="#" class="btn btn-warning">Visitez</a></div>
+          <img class="bg-image" src="{% static 'Repetiteurs/medias/teacher-2985521_1280.jpg'%}" alt="Image 2">
+          
+          <div class="text-overlay"><a href="#" class="btn btn-warning">Visitez</a></div>
+          <img class="bg-image" src="{% static 'Repetiteurs/medias/engineer-4927719_960_720.jpg' %}" alt="Image 3">
+      </div>
+  </dive>
+  
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var images = document.querySelectorAll('.image-container .bg-image');
+        var index = 0;
+        images[index].style.display = 'block'; // Affiche la première image
+        setInterval(function() {
+            images[index].style.display = 'none'; // Masque l'image actuelle
+            index = (index + 1) % images.length; // Passe à l'image suivante
+            images[index].style.display = 'block'; // Affiche la nouvelle image
+        }, 3000); // Change d'image toutes les 3 secondes (3000 ms)
+    });
+</script>
+
+<div class="mb-3 col d-inline-block text-center" >
+</div>
+</head>
+<body>
+<div class="container mt-5">
+  <div class="row  container">
+    <div class="col-lg-4 col-md-6 col-12 mb-4">
+        <div class="card shadow" style="width: 16rem; height: 25rem">
+            <img src="{% static 'Repetiteurs/medias/istockphoto-1443305526-612x612.jpg' %}" class="card-img-topp" alt="..." style="border-radius: 10px; height 16rem;">
+            <div class="card-body">
+              <h5 class="card-title text-center">Groupe d'etude</h5>
+              <p class="card-text text-center">Je recherche un groupe d'etude près de chez moi avec des eleves d'autres etablissements</p>
+              <div class="text-center">
+                <a href="{% url "Repetiteurs:groupeEtude" %}" class="btn btn-success ">Consulter</a>
+                </div>
+            </div>
+          </div>
+    </div>
+    <div class="col-lg-4 col-md-6 col-12 mb-4">
+        <div class="card shadow" style="width: 16rem; height: 25rem">
+  <img src="{% static 'Repetiteurs/medias/business-5475661_1280.jpg' %}" class="card-img-topp" alt="jeux educatifs" style="border-radius: 10px;">
+            <div class="card-body">
+              <h5 class="card-title text-center">Je M'exerce</h5>
+              
+             <p class="card-text text-center" >Je recherche des fascicules ou des anales pour mieux m'exercer</p>
+            <div class="text-center">
+            <a href="#" class="btn btn-success ">Consulter</a>
+            </div>
+            </div>
+          </div>
+    </div>
+    <div class="col-lg-4 col-md-6 col-12 mb-4">
+        <div class="card shadow" style="width: 16rem; height: 25rem">
+            <img src="{% static 'Repetiteurs/medias/distance-learning-6974511_1280.jpg' %}" class="card-img-topp" alt="..." style="border-radius: 10px;">
+            <div class="card-body">
+              <h5 class="card-title text-center text-center">Divertissement </h5>
+              <p class="card-text text-center">Jouer des jeux educatifs avec des amis et lancez vous des defis</p>
+              <div class="text-center">
+                <a href="#" class="btn btn-success ">Consulter</a>
+              </div>
+            </div>
+          </div>
+
+    </div>
+    <div class="col-lg-4 col-md-6 col-12 mb-4">
+        <div class="card shadow" style="width: 16rem; height: 25rem">
+            <img src="{% static 'Repetiteurs/medias/istockphoto-1435014643-612x612.jpg' %}" class="card-img-topp" alt="..." style="border-radius: 10px;">
+            <div class="card-body">
+              <h5 class="card-title text-center text-center">Mon IA</h5>
+              <p class="card-text text-center">Besoins de conseils pour Mieux s'organiser? engagez une discussion avec votre IA personalisée </p>
+              <div class="text-center">
+                <a href="#" class="btn btn-success ">Consulter</a>
+              </div>
+            </div>
+          </div>
+          
+    </div>
+    <div class="col-lg-4 col-md-6 col-12 mb-4">
+        <div class="card shadow" style="width: 16rem; height: 25rem; ">
+            <img src="{% static 'Repetiteurs/medias/istockphoto-1369291049-612x612.jpg' %}"  class="card-img-topp" alt="..." style="border-radius: 10px;">
+            <div class="card-body">
+              <h5 class="card-title text-center text-center">Aller plus loin</h5>
+              <p class="card-text text-center">Echanger avec notre Equipe, et trouvez la solution à votre preocciupation</p>
+              <div class="text-center">
+                <a href="#" class="btn btn-success ">Consulter</a>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>
+<p></p>
+<div class="container mt-4 mb-4">
+
+</div>
+<div class="col-lg-12 mb-5 mt-5 " >
+    <h2 class="text-center mb-4">Témoignages</h2>
+</div>
+<div class="container">
+    <div class="container">
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <div class="card border-0 shadow">
+              <img src="chemin/vers/photo-temoin-1.jpg" class=" rounded-circle" alt="Photo Témoin 1">
+              <div class="card-body p-5">
+                <h5 class="card-title mb-0"><strong>Témoignage 1</strong></h5>
+                <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec odio ipsum. Integer elit libero, blandit ac tristique vitae, feugiat vitae quam. Maecenas eget ipsum sit amet eros fringilla tempor."</p>
+              </div>
+              <div class="card-footer bg-transparent border-0">
+                <small class="text-muted">- Nom du Témoin 1</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="card border-0 shadow">
+              <img src="chemin/vers/photo-temoin-2.jpg" class=" rounded-circle" alt="Photo Témoin 2">
+              <div class="card-body p-5">
+                <h5 class="card-title mb-0"><strong>Témoignage 2</strong></h5>
+                <p class="card-text">"Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis blandit nunc ut tellus eleifend condimentum. Integer tincidunt congue libero, id dapibus sapien viverra vel."</p>
+              </div>
+              <div class="card-footer bg-transparent border-0">
+                <small class="text-muted">- Nom du Témoin 2</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+    </div>
+{% endblock %}

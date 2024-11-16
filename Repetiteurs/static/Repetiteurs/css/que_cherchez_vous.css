@@ -1,0 +1,153 @@
+.dashboard {
+    max-width: 1200px; /* Plus large pour occuper plus d'espace horizontal */
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+}
+h1{
+animation: colorChange 5s infinite;
+text-align: center;
+ font-family: 'Arial', sans-serif; /* Choisissez une police de caractères appropriée */
+  font-weight: bold; /* Mettez en gras pour plus de présence */
+  color: #333; /* Couleur du texte sombre pour une bonne lisibilité */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ajoutez une ombre portée subtile */
+  /* Ajoutez d'autres styles selon vos préférences */
+}
+h2{
+    
+    font-family: 'Arial', sans-serif; /* Choisissez une police de caractères appropriée */
+    font-weight: bold; /* Mettez en gras pour plus de présence */
+    color: #101011; /* Couleur du texte sombre pour une bonne lisibilité */
+    text-align: center; /* Centrez le titre */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ajoutez une ombre portée subtile */
+    /* Ajoutez d'autres styles selon vos préférences */
+    }
+
+.options {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap; /* Pour que les cartes passent en ligne sous forme de colonne sur les petits écrans */
+}
+
+.option-card {
+    
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    width: 30%; /* Largeur en pourcentage pour que les cartes soient bien alignées */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation pour un effet au survol */
+    background-color: #fff;
+}
+
+.option-card:hover {
+    transform: translateY(-5px); /* Léger décalage vers le haut au survol */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre accentuée au survol */
+}
+.option-card h2 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.option-card p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.action-button {
+    animation: colorChanges 5s infinite;
+    height: 40px;
+    width: 120px;
+    background-color: #0056b3;
+    display: inline-block;
+    padding: 10px ;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    color: white;
+    font-family: 'Arial', sans-serif; /* Choisissez une police de caractères appropriée */
+     font-weight: bold; /* Mettez en gras pour plus de présence */
+     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ajoutez une ombre portée subtile */
+}
+
+.action-button:hover {
+    background-color: #1ff018;
+    text-decoration: none;
+    color: white;
+ font-family: 'Arial', sans-serif; /* Choisissez une police de caractères appropriée */
+  font-weight: bold; /* Mettez en gras pour plus de présence */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ajoutez une ombre portée subtile */
+  border-radius: 60px;
+}
+
+/* Style responsive pour écrans plus petits */
+@media (max-width: 768px) {
+    .option-card {
+        width: 100%; /* Prend toute la largeur sur les petits écrans */
+    }
+}
+.search-section {
+    display: flex;
+    align-items: center; /* Aligne le texte et l'image verticalement */
+    justify-content: center; /* Centre l'ensemble du conteneur */
+    padding: 20px;
+}
+
+.search-text {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+   
+}
+
+.icon-image {
+    width: 100px;
+    margin-left: 10px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom: 4px solid #FF6347;
+    animation: bounce 2.5s ease infinite;
+}
+
+/* Définition de l'animation de bond */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(30px); /* Position initiale et finale */
+    }
+    50% {
+        transform: translateY(-10px); /* Déplace l'image vers le haut pour créer le bond */
+     
+    }
+    
+}
+/*@keyframes right-left {
+    0%, 100% {
+        transform: translatex(10px); 
+    }
+    50% {
+        transform: translatex(-5px); 
+    }
+} */
+
+
+
+@keyframes colorChange {
+    0% { color: #007bff; } /* Bleu de base */
+    25% { color: #0056b3; } /* Bleu plus foncé */
+    50% { color: #4133ff; } /* Bleu moyen plus clair */
+    75% { color: #ff0000; } /* Bleu clair */
+    100% { color: #007bff; } /* Retour au bleu de base */
+
+    
+}@keyframes colorChanges {
+    0% { color: #ff0000; } /* Bleu de base */
+    25% { color: #d4d4d4; } /* Bleu plus foncé */
+    50% { color: #f7fa45; } /* Bleu moyen plus clair */
+    100% { color: #ffffff; } /* Bleu clair */
+}

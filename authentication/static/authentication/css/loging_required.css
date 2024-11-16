@@ -1,0 +1,128 @@
+/* Animation des boutons */
+.animated-button {
+    transition: all 0.3s ease;
+}
+
+.animated-button{
+
+    height: 60px;
+    width: 250px;
+    margin: 10px;
+}
+.animated-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Positionnement et animation des icônes flottantes en arrière-plan */
+.floating-icon-2{
+    position: absolute;
+    font-size: 3rem;
+    color: red;
+    animation: floatt 3s ease-in-out infinite;
+    opacity: 0.7;
+    z-index: -1; /* Assure que les icônes restent derrière l'alerte */
+}
+
+.floating-icon-1{
+    position: absolute;
+    font-size: 3rem;
+    color: red;
+    animation: floats 2s ease-in-out infinite;
+    opacity: 0.7;
+    z-index: -1; /* Assure que les icônes restent derrière l'alerte */
+}
+
+@keyframes floatt {
+    0%, 100% { transform: translateY(); }
+    50% { transform: translateY(-200px); }
+}
+
+@keyframes floats {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-200px); }
+}
+
+
+
+/* Placement des icônes avec différents décalages */
+.floating-icon-1 {
+    top: 400px;
+    left: 5%;
+    animation-delay: 0s;
+    color: rgb(4, 201, 4);  
+}
+
+.floating-icon-2 {
+    top: 50%;
+    right: 5%;
+    animation-delay: 0s;
+}
+
+.floating-icon-3 {
+    bottom: 5%;
+    left: 25%;
+    animation-delay: 2s;
+}
+
+.floating-icon-4 {
+    bottom: 5%;
+    right: 20%;
+    animation-delay: 3s;
+    color: rgb(4, 201, 4);
+}
+
+/* Animation de flottement des icônes */
+@keyframes float {
+    0%, 100% { transform: translateY(5); }
+    50% { transform: translateY(-40px); }
+}
+
+
+.floating-icon-3, .floating-icon-4  {
+    position: absolute;
+    font-size: 3rem;
+    color: red;
+    animation: floating 4s ease-in-out infinite;
+    opacity: 0.7;
+    z-index: -1; /* Assure que les icônes restent derrière l'alerte */
+}
+
+
+.floating-icon-3 {
+    position: absolute;
+    font-size: 3rem;
+    color: red;
+    animation: floating 10s ease-in-out infinite;
+    opacity: 0.7;
+    z-index: -1; /* Assure que les icônes restent derrière l'alerte */
+}
+
+.alert{
+    font-family: 'Arial', sans-serif; /* Choisissez une police de caractères appropriée */
+    font-size: 32px; /* Taille de police généreuse pour le titre */
+    font-weight: bold; /* Mettez en gras pour plus de présence */
+    color: #000000; /* Couleur du texte sombre pour une bonne lisibilité */
+    text-align: center; /* Centrez le titre */
+    margin-top: 50px; /* Ajoutez un peu d'espace en haut pour la séparation */
+    /* Ajoutez d'autres styles selon vos préférences */
+}
+
+.alert-heading{
+    font-family: 'timenewromaine', sans-serif; /* Choisissez une police de caractères appropriée */
+    font-size: 50px; /* Taille de police généreuse pour le titre */
+    font-weight: bold; /* Mettez en gras pour plus de présence */
+    color: #ff0404; /* Couleur du texte sombre pour une bonne lisibilité */
+    text-align: center; /* Centrez le titre */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ajoutez une ombre portée subtile */
+
+}
+
+@keyframes floating {
+    0% { transform: translate(0, 0); }
+    20% { transform: translate(-30px, 40px); }
+    40% { transform: translate(50px, -20px); }
+    60% { transform: translate(-20px, -30px); }
+    80% { transform: translate(30px, 10px); }
+    100% { transform: translate(0, 0); }
+}

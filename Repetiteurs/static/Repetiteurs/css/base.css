@@ -1,0 +1,31 @@
+
+.username-icon {
+    display: flex;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    margin-left: auto;
+  }
+  .username-icon i {
+    margin-right: 5px;
+  }
+  .username-icon p {
+    margin-bottom: 0;
+  }
+  .auth-buttons {
+    color: #072ac8;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+  }
+  .auth-buttons a {
+    margin-left: 15px;
+  }
+  .navbar{
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+   
+  }
+  .btn.btn-info{
+    background-color: #072ac8;
+
+  };

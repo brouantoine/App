@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-y8^n1al7!ft^y18+0a4)aqws6)421@g%_rh7lhf_hg+ri4@rcw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ '192.168.56.1', '127.0.0.1', 'localhodt', '*' , '192.168.143.155']
 
 
 # Application definition
@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'PROJECT1.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'utilisateurs',    # Nom de votre base de données PostgreSQL
+        'USER': 'postgres',        # Nom d'utilisateur PostgreSQL
+        'PASSWORD':'admin',    # Mot de passe PostgreSQL
+        'HOST': '127.0.0.1',    # Adresse IP où PostgreSQL est accessible (localhost ici)
+        'PORT': '5432',         # Port par défaut de PostgreSQL
     }
 }
 
@@ -104,7 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fr-fr'
 
 TIME_ZONE = 'UTC'
 
@@ -117,8 +121,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS =[
+    os.path.join( BASE_DIR, 'static')
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+LOGIN_URL = '/loging_required/'
+CSRF_COOKIE_SECURE = False  # Pour le développement local avec HTTP, sinon True en production
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000']  # Ajoute l'URL du site pour des environnements particuliers

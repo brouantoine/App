@@ -1,0 +1,79 @@
+
+
+.marquee {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    background-color: rgba(0, 123, 255, 0.1); /* Bleu avec opacité maximale */
+    color: white;
+    padding: 10px 0;
+  }
+
+  .marquee span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 10s linear infinite;
+  }
+
+  @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+  }
+
+  
+  .image-container {
+    width: 100%;
+    height: 500px; /* Ajustez la hauteur selon vos besoins */
+    overflow: hidden; /* Cache les images en dehors de la div */
+}
+
+.image-container img {
+    display: none; /* Cache toutes les images par défaut */
+    width: 100%;
+    height: auto;
+}
+
+
+.image-container {
+    width: 100%;
+    height: 300px; /* Ajustez la hauteur selon vos besoins */
+    overflow: hidden; /* Cache les images en dehors de la div */
+}
+
+.image-container img {
+    display: none; /* Cache toutes les images par défaut */
+    width: 100%;
+    height: auto;
+}
+
+
+.nav-link.active {
+    font-family: 'Arial', sans-serif; /* Choisissez une police de caractères appropriée */
+    font-size: 18px; /* Taille de police généreuse pour le titre */
+    font-weight: bold; /* Mettez en gras pour plus de présence */
+    color: #034aa7; /* Couleur du texte sombre pour une bonne lisibilité */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ajoutez une ombre portée subtile */
+    /* Ajoutez d'autres styles selon vos préférences */
+}
+
+.btn.btn-info{
+    font-family: 'Arial', sans-serif; /* Choisissez une police de caractères appropriée */
+    font-size: 14px; /* Taille de police généreuse pour le titre */
+    font-weight: bold; /* Mettez en gras pour plus de présence */
+    color: #ffffff; /* Couleur du texte sombre pour une bonne lisibilité */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ajoutez une ombre portée subtile */
+    /* Ajoutez d'autres styles selon vos préférences */
+}
+.btn.btn-outline-success{
+    font-family: 'Arial', sans-serif; /* Choisissez une police de caractères appropriée */
+    font-size: 14px; /* Taille de police généreuse pour le titre */
+    font-weight: bold; /* Mettez en gras pour plus de présence */
+    color: #000000; /* Couleur du texte sombre pour une bonne lisibilité */
+    /* Ajoutez d'autres styles selon vos préférences */
+}
+.card.rounded-card.card:active {
+    background-color: #f0f0f0; /* Changer la couleur de fond */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Ajouter une ombre */
+    transform: scale(0.95); /* Réduire légèrement la taille */
+  }

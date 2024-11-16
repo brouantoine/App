@@ -1,0 +1,37 @@
+{# {% extends "Repetiteurs/base.html" %} #}
+{# {% load static %} #}
+{# {% block content %} #}
+{# <link rel="stylesheet" href="{% static "Repetiteurs/css/primaire.css" %}"> #}
+{# <div class="dashboard"> #}
+{#     <h1>Bienvenue sur la plateforme de répétiteurs</h1> #}
+
+{#     <div class="options"> #}
+{#         <!-- Option 1: Créer un profil --> #}
+{#         <div class="option-card"> #}
+{#             <h2>Créer un Profil</h2> #}
+{#             <p>Inscrivez-vous pour être visible par les répétiteurs et recevoir des propositions d'aide dans les matières de votre choix.</p> #}
+{#             <a href="{% url 'Repetiteurs:creer_profile' %}" class="action-button">Créer mon profil</a> #}
+{#         </div> #}
+
+{#         <!-- Option 2: Rechercher un répétiteur --> #}
+{#         <div class="option-card"> #}
+{#             <h2>Rechercher un Répétiteur</h2> #}
+{#             <p>Parcourez les profils des répétiteurs qualifiés et trouvez celui qui correspond le mieux à vos besoins.</p>#}
+{% extends "Repetiteurs/base.html" %}
+{% load static %}
+<link rel="stylesheet" href="{% static "Repetiteurs/css/que_cherchez_vous.css" %}">
+
+{% block content %}
+<div class="search-section">
+    <h1 class="search-text">Que cherchez-vous</h1>
+    <img class="icon-image" src="{% static 'Repetiteurs/medias/student.png' %}" alt="Icone d'étudiant">
+</div>
+
+<div>
+    {% if gabarit %}
+        {% include gabarit %}
+    {% else %}
+        <p>Aucun contenu à afficher</p>
+    {% endif %}
+</div>
+{% endblock %}

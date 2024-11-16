@@ -1,0 +1,58 @@
+{% extends "Repetiteurs/base.html" %}
+{% load static %}
+{% block title %}Créer un compte{% endblock %}
+<link rel="stylesheet" href="{% static "authentication/css/register.css" %}">
+{% block content %}
+<div class="signup-container">
+    <div class="signup-card">
+        <h2 class="login-title" style="color: #27379b">
+            <i class="fas fa-user"></i> 
+            Signup
+        </h2>     
+        {% for message in messages %}
+            <p class="signup-message">{{ message }}</p>
+        {% endfor %}
+        <form action="" method="post" class="signup-form" id="signupForm">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="form-group">
+                <input type="submit" value="S'inscrire" class="signup-button">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('signupForm');
+        const inputs = form.querySelectorAll('input[type="text"], input[type="password"], input[type="email"]');
+        
+        inputs.forEach(input => {
+            input.addEventListener('input', function() {
+                if (input.value.trim() === '') {
+                    input.style.borderColor = 'red';
+                } else {
+                    input.style.borderColor = '#007BFF';
+                }
+            });
+        });
+
+        form.addEventListener('submit', function(event) {
+            let isValid = true;
+            inputs.forEach(input => {
+                if (input.value.trim() === '') {
+                    isValid = false;
+                    input.style.borderColor = 'red';
+                }
+            });
+
+            if (!isValid) {
+                event.preventDefault();
+                alert('Veuillez remplir tous les champs.');
+            }
+        });
+    });
+</script>
+{% endblock %}
