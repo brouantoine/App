@@ -104,3 +104,6 @@ body::before {
     filter: blur(8px); /* Applique un effet de flou */
     z-index: -1;
 }
+.btn:hover {
+    background-color: #1e96fb;
+  }

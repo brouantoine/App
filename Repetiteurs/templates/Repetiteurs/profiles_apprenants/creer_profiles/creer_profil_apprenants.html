@@ -1,0 +1,79 @@
+{% extends "Repetiteurs/page_de_base/base/base.html" %} 
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static "Repetiteurs/css/creer_profile.css" %}">
+<div class="profile-form-container">
+    <h1>Créer votre Profil</h1>
+    
+    <form action="" method="post">
+        {% csrf_token %}
+        
+        <!-- Informations personnelles -->
+        <div class="form-group">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom" value="{{ initial_data.nom }}" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="prenom">Prénom</label>
+            <input type="text" id="prenom" name="prenom" value="{{ initial_data.prenom }}" required>
+        </div>
+        
+        <!-- Niveau d'étude -->
+        <div class="form-group">
+            <label for="niveau">Niveau d'étude</label>
+            <select id="niveau" name="niveau" required>
+                <option value="" disabled selected>Choisissez votre niveau</option>
+                <option value="Seconde">2nde A</option>
+                <option value="Premiere">1ère A</option>
+                <option value="Terminale">Terminale A</option>
+                <option value="Sixième">6ème</option>
+            </select>
+        </div>
+        
+        <!-- Modalités des sessions -->
+        <div class="form-group">
+            <label for="modalites">Comment je veux apprendre</label>
+            <select id="modalites" name="modalites" required>
+                <option value="" disabled selected>Choisissez une modalité</option>
+                <option value="en ligne">En ligne</option>
+                <option value="en presentiel">En présentiel</option>
+                <option value="les deux">Les deux</option>
+            </select>
+        </div>
+        
+        <!-- Matières recherchées -->
+        <div class="form-group">
+            <label for="matieres">Matières recherchées</label>
+            <select id="matieres" name="matieres" required>
+                <option value="" disabled selected>Choisissez une matière</option>
+                <option value="sciences">Sciences</option>
+                <option value="lettres">Lettres</option>
+            </select>
+        </div>
+        
+        <!-- Objectifs d'apprentissage -->
+        <div class="form-group">
+            <label for="objectifs">Objectifs d'apprentissage</label>
+            <textarea id="objectifs" name="objectifs" rows="4" placeholder="Décrivez vos objectifs ou difficultés"></textarea>
+        </div>
+        
+        <!-- École fréquentée -->
+        <div class="form-group">
+            <label for="ecole">École fréquentée</label>
+            <input type="text" id="ecole" name="ecole" placeholder="Ex: Lycée Moderne Jeune Fille" required>
+        </div>
+        
+        <!-- Moyenne annuelle -->
+        <div class="form-group">
+            <label for="moyenne">Moyenne annuelle (année précédente)</label>
+            <input type="number" step="0.01" id="moyenne" name="moyenne" placeholder="Ex: 16.50" required>
+        </div>
+        
+        <!-- Bouton de soumission -->
+        <div class="form-group">
+            <button type="submit" class="submit-button">Créer mon profil</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

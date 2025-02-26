@@ -1,0 +1,81 @@
+{% extends "Repetiteurs/page_de_base/base/base.html" %} 
+{% load static %}
+{% block content %}
+<div class="container mt-5">
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Nom du groupe 1</h5>
+                <div class="row mb-3">
+                  <div class="col-md-2">
+                    <img src="photo-utilisateur-1.jpg" class="img-fluid rounded-circle" alt="Photo utilisateur 1">
+                  </div>
+                  <div class="col-md-2">
+                    <img src="photo-utilisateur-2.jpg" class="img-fluid rounded-circle" alt="Photo utilisateur 2">
+                  </div>
+                </div>
+                <p class="card-text"><strong>Matières étudiées :</strong> Mathématiques, Français, Sciences, etc.</p>
+                <p class="card-text"><strong>Localisation :</strong> Abidjan, Côte d'Ivoire</p>
+                <p class="card-text"><strong>Calendrier :</strong> [Calendrier de l'emploi du temps]</p>
+                <p class="card-text"><strong>Contact chef de groupe :</strong> Nom du chef de groupe, Email, Numéro de téléphone</p>
+                <p class="card-text text-muted">Chef de groupe : Nom du chef de groupe</p>
+                <button class="btn btn-primary">Rejoindre ce groupe</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Nom du groupe 2</h5>
+                <div class="row mb-3">
+                  <div class="col-md-2">
+                    <img src="photo-utilisateur-3.jpg" class="img-fluid rounded-circle" alt="Photo utilisateur 3">
+                  </div>
+                  <div class="col-md-2">
+                    <img src="photo-utilisateur-4.jpg" class="img-fluid rounded-circle" alt="Photo utilisateur 4">
+                  </div>
+                </div>
+                <p class="card-text"><strong>Matières étudiées :</strong> Histoire, Géographie, Langues, etc.</p>
+                <p class="card-text"><strong>Localisation :</strong> Dakar, Sénégal</p>
+                <p class="card-text"><strong>Calendrier :</strong> [Calendrier de l'emploi du temps]</p>
+                <p class="card-text"><strong>Contact chef de groupe :</strong> Nom du chef de groupe, Email, Numéro de téléphone</p>
+                <p class="card-text text-muted">Chef de groupe : Nom du chef de groupe</p>
+                <button class="btn btn-primary">Rejoindre ce groupe</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Ajoutez d'autres groupes ici -->
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Précédent</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Suivant</span>
+      </a>
+    </div>
+    <div class="text-center mt-3">
+      <button class="btn btn-primary mr-2" onclick="prevSlide()">Précédent</button>
+      <button class="btn btn-primary" onclick="nextSlide()">Suivant</button>
+      <button type="submit" class="btn btn-success ml-2">Créer le groupe</button>
+    </div>
+  </div>
+  
+  <script>
+    function nextSlide() {
+      $('#carouselExampleControls').carousel('next');
+    }
+  
+    function prevSlide() {
+      $('#carouselExampleControls').carousel('prev');
+    }
+  </script>
+  
+{% endblock %}

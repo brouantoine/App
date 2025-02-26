@@ -1,0 +1,26 @@
+{% extends "Repetiteurs/page_de_base/base/base.html" %} 
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static "Repetiteurs/css/apprenants_details.css" %}">
+<h2 style="text-align: center; margin-top: 15px;">{{ apprenants.nom }} {{ apprenants.prenom }}👨‍🎓</h2>
+<div class="Profile_container">
+    <!-- Profil de l'apprenant -->
+    <div class="profile">
+        <p><strong>Matières : </strong> {{ apprenants.matieres|default:"Non spécifiées" }}</p>
+        <p><strong>Niveau : </strong> {{ apprenants.niveau|default:"Non spécifié" }}</p>
+        <p><strong>Objectifs : </strong> {{ apprenants.objectifs|default:"Non spécifiés" }}</p>
+        <p><strong>Modalités : </strong> {{ apprenants.modalites|default:"Non spécifiées" }}</p>
+        <p><strong>Moyenne de l'année précédente: </strong> {{ apprenants.moyenne|default:"Non spécifiée" }}</p>
+        <p><strong>École : </strong> {{ apprenants.ecole|default:"Non spécifiée" }}</p>
+    </div>
+    <!-- Formulaire pour envoyer un message -->
+    <div class="message-form">
+        <h3>Envoyer une demande</h3>
+        <form action="" method="post">
+            {% csrf_token %}
+            <textarea name="message" rows="4" placeholder="Laissez un message" required></textarea>
+            <button type="submit">Envoyer</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

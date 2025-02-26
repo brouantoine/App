@@ -28,4 +28,7 @@
   .btn.btn-info{
     background-color: #072ac8;
 
-  };
+  } 
+  .btn:hover {
+    background-color: #1e96fb;
+  }

@@ -1,0 +1,158 @@
+.document-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+    text-align: center;
+}
+.je-m-exercer-div{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    text-align: center;
+}
+.tittle_p {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    margin-top: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-left: 2px solid #FF6347;
+    display: inline-block; /* Réduit la largeur au texte */
+    padding: 5px 10px; /* Ajuste l'espace intérieur */
+}
+
+h1{
+    padding-top: 25px;
+        animation: colorChange 5s infinite;
+        text-align: center;
+         font-family: 'Arial', sans-serif; /* Choisissez une police de caractères appropriée */
+          font-weight: bold; /* Mettez en gras pour plus de présence */
+          color: #333; /* Couleur du texte sombre pour une bonne lisibilité */
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ajoutez une ombre portée subtile */
+
+}
+@keyframes colorChange {
+    0% { color: #007bff; } /* Bleu de base */
+    25% { color: #0056b3; } /* Bleu plus foncé */
+    50% { color: #4133ff; } /* Bleu moyen plus clair */
+    75% { color: #ff0000; } /* Bleu clair */
+    100% { color: #007bff; } /* Retour au bleu de base */
+}
+
+.document-item {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.p_tittle {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: -20px;
+    color: #333;
+}
+.p_description{
+    font-family: 'Arial', sans-serif;
+    color: #666;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-left: 2px solid #007bff;
+    display: inline-block; /* Réduit la largeur au texte */
+    padding: 5px 10px; /* Ajuste l'espace intérieur */
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.p_description_div{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    text-align: center;
+}
+.document-info {
+    margin: 10px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.popularity {
+    color: #28a745; /* Couleur verte pour la popularité */
+    font-weight: bold;
+}
+
+.page-count {
+    color: #0056b3; /* Couleur bleue pour le nombre de pages */
+    font-weight: bold;
+}
+
+.btn-download {
+    display: inline-block;
+    padding: 6px 10px;
+    background-color: #1e96fb;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn-download:hover {
+    background-color: #1e96fb;
+    color: black;
+    font-weight: bold;
+}
+
+
+.je-m-exerce-section{
+    display: flex;
+    align-items: center; /* Aligne le texte et l'image verticalement */
+    justify-content: center; /* Centre l'ensemble du conteneur */
+    padding: 20px;
+}
+
+.je-m-exerce-text {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+   
+}
+/* Style responsive pour écrans plus petits */
+@media (max-width: 768px) {
+    .option-card {
+        width: 100%; /* Prend toute la largeur sur les petits écrans */
+    }
+}
+
+.icon-image{
+    width: 100px;
+    margin-left: 10px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom: 4px solid #FF6347;
+    animation: bounce 2.5s ease infinite;
+}
+
+/* Définition de l'animation de bond */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(30px); /* Position initiale et finale */
+    }
+    50% {
+        transform: translateY(-10px); /* Déplace l'image vers le haut pour créer le bond */
+     
+    }
+    
+}
+.add-document{
+    display: flex;
+    align-items: center; /* Aligne le texte et l'image verticalement */
+    justify-content: center; /* Centre l'ensemble du conteneur */
+    padding: 20px;
+}

@@ -1,0 +1,19 @@
+
+{% extends "Repetiteurs/page_de_base/base/base.html" %} 
+{% load static %}
+<link rel="stylesheet" href="{% static "Repetiteurs/css/que_cherchez_vous.css" %}">
+
+{% block content %}
+<div class="search-section">
+    <h1 class="search-text">Que cherchez-vous</h1>
+    <img class="icon-image" src="{% static 'Repetiteurs/medias/student.png' %}" alt="Icone d'étudiant">
+</div>
+
+<div>
+    {% if gabarit %}
+        {% include gabarit %}
+    {% else %}
+        <p>Aucun contenu à afficher</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -88,3 +88,6 @@ header, footer {
     text-align: center;
     color: #007BFF;
 }
+.btn:hover {
+    background-color: #1e96fb;
+  }

@@ -1,0 +1,13 @@
+{% extends "Repetiteurs/page_de_base/base/base.html" %} 
+{% block content %}
+<div>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    {% if gabarit %}
+        {% include gabarit %}
+    {% else %}
+        <p>Erreur : aucun gabarit trouvé.</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,6 +1,99 @@
-.image-container {
+/* Style de base */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.card-wrapper {
+  display: flex;
+  gap: 500px; /* Espacement entre les deux lots */
+  justify-content: center; /* Centrer horizontalement */
+  align-items: flex-start; /* Aligner les colonnes au sommet */
+}
+
+.card-position,
+.card-position1 {
+  display: flex;
+  flex-direction: column; /* Organisation en colonne pour chaque lot */
+  gap: 15px;
+}
+
+/* Image d'arrière-plan */
+.pict {
   position: relative;
-  text-align: center;
+  width: 100%;
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Style pour la zone de texte sur les cartes */
+.card.rounded-card.container {
+  padding-top: 0px;
+  padding-bottom:0px;
+  border: #007bff;
+  width:12rem;
+  height:11rem;
+  border: 4px solid; 
+  border-radius: 20px;
+}
+
+/* Texte à l'intérieur des cartes */
+.card-text {
+  font-family: 'Arial', sans-serif; /* Choisissez une police de caractères appropriée */
+  font-size: 14px; /* Taille de police généreuse pour le titre */
+  font-weight: bold; /* Mettez en gras pour plus de présence */
+  color: #034aa7; /* Couleur du texte sombre pour une bonne lisibilité */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ajoutez une ombre portée subtile */
+}
+
+/* Style des boutons */
+.btn {
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+}
+
+.btn-success {
+  background-color: #28a745;
+}
+
+.btn:hover {
+  background-color: #1e96fb;
+}
+
+/* Animation de défilement */
+.slide-in {
+  position: relative;
+  left: -100%;
+  animation: slideIn 1s forwards;
+}
+
+@keyframes slideIn {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 0;
+  }
+}
+
+/* Image-container */
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 500px;
+  position: relative;
   margin-top: 20px;
 }
 
@@ -17,63 +110,549 @@
   transform: translate(-50%, -50%);
 }
 
-.btn {
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
+/* Témoignages */
+.card.border-0 {
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.btn:hover {
-  background-color: #1e96fb;
-}
-.card-img-topp{
-height: 10rem
-}
-.card.shadow{
-border-radius:20px
-}
-.slide-in {
-  position: relative;
-  left: -100%; /* Déplace le texte initialement hors de la vue */
-  animation: slideIn 1s forwards; /* Animation de défilement */
+.rounded-circle {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
 }
 
-@keyframes slideIn {
-  from {
-      left: -100%; /* Commence à gauche de la vue */
-  }
-  to {
-      left: 0; /* Se déplace vers la droite pour entrer dans la vue */
-  }
+/* Cartes responsives */
+.card-img-topp {
+  height: 10rem;
+  border-radius: 10px;
 }
 
-.container::-webkit-scrollbar {
-  width: 10px; /* Largeur de la barre de défilement */
-}
-
-.container::-webkit-scrollbar-thumb {
-  background-color: #007bff; /* Couleur de la barre de défilement */
-  border-radius: 10px; /* Style de la barre de défilement */
-}
-
-.container::-webkit-scrollbar-track {
-  background: transparent; /* Couleur de fond de la barre de défilement */
+.card.shadow {
+  border-radius: 20px;
 }
 
 h3 {
-  font-family: 'Arial', sans-serif; /* Choisissez une police de caractères appropriée */
-  font-size: 32px; /* Taille de police généreuse pour le titre */
-  font-weight: bold; /* Mettez en gras pour plus de présence */
-  color: #333; /* Couleur du texte sombre pour une bonne lisibilité */
-  text-align: center; /* Centrez le titre */
-  margin-top: 50px; /* Ajoutez un peu d'espace en haut pour la séparation */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ajoutez une ombre portée subtile */
-  /* Ajoutez d'autres styles selon vos préférences */
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-top: 50px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-.card.rounded-card.container{
-border: #007bff;
+
+/* Conteneur des cartes */
+.cards-container {
+  display: flex; /* Par défaut, Flexbox */
+  flex-wrap: wrap; /* Permet le retour à la ligne */
+  gap: 20px; /* Espacement entre les cartes */
+  justify-content: center; /* Centre les cartes */
+  padding: 5px 0;
+  flex-direction: column
+}
+
+/* Carte */
+.card {
+  width: 200px; /* Taille par défaut sur grands écrans */
+  height: 400px;
+  border-radius: 40px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-shrink: 0; /* Empêche les cartes de rétrécir */
+}
+
+/* Pour les écrans très petits (téléphones) */
+@media (max-width: 576px) {
+  .card {
+    width: 60%; /* Prend toute la largeur */
+    height: auto; /* Ajuste automatiquement la hauteur */
+    margin-bottom: 20px; /* Ajoute de l'espace entre les cartes */
+  }
+  .card {
+    width: 60px; /* Taille par défaut sur grands écrans */
+    height: 100px;
+    border-radius: 60px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px; 
+    z-index: 1;
+  }
+  .rounded-card {
+    width: 60%;
+    height: 60px;
+  }
+
+  .pict {
+    height: auto; /* Permet à l'image de s'adapter */
+  }
+
+  .pict .marquee {
+    font-size: 14px; /* Réduit la taille du texte */
+  }
+
+  .image-container {
+    flex-direction: column; /* Empile les images verticalement */
+  }
+
+  .bg-image {
+    width: 100%; /* Prend toute la largeur */
+    height: auto; /* Ajuste automatiquement la hauteur */
+  }
+}
+
+/* Cartes responsives */
+@media (max-width: 576px) {
+  .cards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Deux colonnes */
+    gap: 10px; /* Espacement entre les colonnes et lignes */
+    justify-content: center;
+  }
+
+  .card {
+    width: 100%; /* S'adapte à la largeur disponible */
+    height: auto; /* Ajuste automatiquement la hauteur */
+    padding: 10px; /* Réduction des marges internes */
+    border-radius: 10px; /* Coins légèrement arrondis */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    margin-bottom: 0; /* Réduction des espaces entre les cartes */
+  }
+
+  .card-img-topp {
+    height: 6rem; /* Taille d'image réduite */
+    border-radius: 5px; /* Coins légèrement arrondis */
+  }
+
+  .card-text {
+    font-size: 10px; /* Taille de texte réduite */
+    line-height: 1.4; /* Améliore la lisibilité */
+  }
+
+  .card-title {
+    
+    font-size: 14px; /* Taille de titre adaptée */
+  }
+  .card.rounded-card.container {
+    padding-top: 0px;
+    padding-bottom:0px;
+    border: #007bff;
+    width:9rem;
+    height:9rem;
+    border: 4px solid; 
+    border-radius: 20px;
+  }
+  .card-wrapper {
+    display: flex;
+    gap: 50px; /* Espacement entre les deux lots */
+    justify-content: center; /* Centrer horizontalement */
+    align-items: flex-start; /* Aligner les colonnes au sommet */
+  }
+  
+  .card-position,
+  .card-position1 {
+    display: flex;
+    flex-direction: column; /* Organisation en colonne pour chaque lot */
+    gap: 15px;
+  }
+}
+@media (max-width: 480px) {
+  .cards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Deux colonnes */
+    gap: 10px; /* Espacement entre les colonnes et lignes */
+    justify-content: center;
+  }
+
+  .card {
+    width: 100%; /* S'adapte à la largeur disponible */
+    height: auto; /* Ajuste automatiquement la hauteur */
+    padding: 10px; /* Réduction des marges internes */
+    border-radius: 10px; /* Coins légèrement arrondis */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    margin-bottom: 0; /* Réduction des espaces entre les cartes */
+  }
+
+  .card-img-topp {
+    height: 6rem; /* Taille d'image réduite */
+    border-radius: 5px; /* Coins légèrement arrondis */
+  }
+
+  .card-text {
+    font-size: 10px; /* Taille de texte réduite */
+    line-height: 1.4; /* Améliore la lisibilité */
+  }
+
+  .card-title {
+    
+    font-size: 14px; /* Taille de titre adaptée */
+  }
+  .card.rounded-card.container {
+    padding-top: 0px;
+    padding-bottom:0px;
+    border: #007bff;
+    width:9rem;
+    height:9rem;
+    border: 4px solid; 
+    border-radius: 20px;
+  }
+  .card-wrapper {
+    display: flex;
+    gap: 50px; /* Espacement entre les deux lots */
+    justify-content: center; /* Centrer horizontalement */
+    align-items: flex-start; /* Aligner les colonnes au sommet */
+  }
+  
+  .card-position,
+  .card-position1 {
+    display: flex;
+    flex-direction: column; /* Organisation en colonne pour chaque lot */
+    gap: 15px;
+  }
+
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .cards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Deux colonnes */
+    gap: 10px; /* Espacement entre les colonnes et lignes */
+    justify-content: center;
+  }
+
+  .card {
+    width: 100%; /* S'adapte à la largeur disponible */
+    height: auto; /* Ajuste automatiquement la hauteur */
+    padding: 10px; /* Réduction des marges internes */
+    border-radius: 10px; /* Coins légèrement arrondis */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    margin-bottom: 0; /* Réduction des espaces entre les cartes */
+  }
+
+  .card-img-topp {
+    height: 6rem; /* Taille d'image réduite */
+    border-radius: 5px; /* Coins légèrement arrondis */
+  }
+
+  .card-text {
+    font-size: 10px; /* Taille de texte réduite */
+    line-height: 1.4; /* Améliore la lisibilité */
+  }
+
+  .card-title {
+    
+    font-size: 14px; /* Taille de titre adaptée */
+  }
+  .card.rounded-card.container {
+    padding-top: 0px;
+    padding-bottom:0px;
+    border: #007bff;
+    width:9rem;
+    height:9rem;
+    border: 4px solid; 
+    border-radius: 20px;
+  }
+  .card-wrapper {
+    display: flex;
+    gap: 50px; /* Espacement entre les deux lots */
+    justify-content: center; /* Centrer horizontalement */
+    align-items: flex-start; /* Aligner les colonnes au sommet */
+  }
+  
+  .card-position,
+  .card-position1 {
+    display: flex;
+    flex-direction: column; /* Organisation en colonne pour chaque lot */
+    gap: 15px;
+  }
+}
+@media (max-width: 480px) {
+  .cards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Deux colonnes */
+    gap: 10px; /* Espacement entre les colonnes et lignes */
+    justify-content: center;
+  }
+
+  .card {
+    width: 100%; /* S'adapte à la largeur disponible */
+    height: auto; /* Ajuste automatiquement la hauteur */
+    padding: 10px; /* Réduction des marges internes */
+    border-radius: 10px; /* Coins légèrement arrondis */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    margin-bottom: 0; /* Réduction des espaces entre les cartes */
+  }
+
+  .card-img-topp {
+    height: 6rem; /* Taille d'image réduite */
+    border-radius: 5px; /* Coins légèrement arrondis */
+  }
+
+  .card-text {
+    font-size: 10px; /* Taille de texte réduite */
+    line-height: 1.4; /* Améliore la lisibilité */
+  }
+
+  .card-title {
+    
+    font-size: 14px; /* Taille de titre adaptée */
+  }
+  .card.rounded-card.container {
+    padding-top: 0px;
+    padding-bottom:0px;
+    border: #007bff;
+    width:9rem;
+    height:9rem;
+    border: 4px solid; 
+    border-radius: 20px;
+  }
+  .card-wrapper {
+    display: flex;
+    gap: 50px; /* Espacement entre les deux lots */
+    justify-content: center; /* Centrer horizontalement */
+    align-items: flex-start; /* Aligner les colonnes au sommet */
+  }
+  
+  .card-position,
+  .card-position1 {
+    display: flex;
+    flex-direction: column; /* Organisation en colonne pour chaque lot */
+    gap: 15px;
+  }
+}
+/* Écrans très petits */
+@media (max-width: 320px) {
+  .cards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Deux colonnes */
+    gap: 10px; /* Espacement entre les colonnes et lignes */
+    justify-content: center;
+  }
+
+  .card {
+    width: 100%; /* S'adapte à la largeur disponible */
+    height: auto; /* Ajuste automatiquement la hauteur */
+    padding: 10px; /* Réduction des marges internes */
+    border-radius: 10px; /* Coins légèrement arrondis */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    margin-bottom: 0; /* Réduction des espaces entre les cartes */
+  }
+
+  .card-img-topp {
+    height: 6rem; /* Taille d'image réduite */
+    border-radius: 5px; /* Coins légèrement arrondis */
+  }
+
+  .card-text {
+    font-size: 10px; /* Taille de texte réduite */
+    line-height: 1.4; /* Améliore la lisibilité */
+  }
+
+  .card-title {
+    
+    font-size: 14px; /* Taille de titre adaptée */
+  }
+  .card.rounded-card.container {
+    padding-top: 0px;
+    padding-bottom:0px;
+    border: #007bff;
+    width:9rem;
+    height:9rem;
+    border: 4px solid; 
+    border-radius: 20px;
+  }
+  .card-wrapper {
+    display: flex;
+    gap: 50px; /* Espacement entre les deux lots */
+    justify-content: center; /* Centrer horizontalement */
+    align-items: flex-start; /* Aligner les colonnes au sommet */
+  }
+  
+  .card-position,
+  .card-position1 {
+    display: flex;
+    flex-direction: column; /* Organisation en colonne pour chaque lot */
+    gap: 15px;
+  }
+
+}
+
+/* Petits téléphones */
+@media (min-width: 321px) and (max-width: 480px) {
+  .cards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Deux colonnes */
+    gap: 10px; /* Espacement entre les colonnes et lignes */
+    justify-content: center;
+  }
+
+  .card {
+    width: 100%; /* S'adapte à la largeur disponible */
+    height: auto; /* Ajuste automatiquement la hauteur */
+    padding: 10px; /* Réduction des marges internes */
+    border-radius: 10px; /* Coins légèrement arrondis */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    margin-bottom: 0; /* Réduction des espaces entre les cartes */
+  }
+
+  .card-img-topp {
+    height: 6rem; /* Taille d'image réduite */
+    border-radius: 5px; /* Coins légèrement arrondis */
+  }
+
+  .card-text {
+    font-size: 10px; /* Taille de texte réduite */
+    line-height: 1.4; /* Améliore la lisibilité */
+  }
+
+  .card-title {
+    
+    font-size: 14px; /* Taille de titre adaptée */
+  }
+  .card.rounded-card.container {
+    padding-top: 0px;
+    padding-bottom:0px;
+    border: #007bff;
+    width:9rem;
+    height:9rem;
+    border: 4px solid; 
+    border-radius: 20px;
+  }
+  .card-wrapper {
+    display: flex;
+    gap: 50px; /* Espacement entre les deux lots */
+    justify-content: center; /* Centrer horizontalement */
+    align-items: flex-start; /* Aligner les colonnes au sommet */
+  }
+  
+  .card-position,
+  .card-position1 {
+    display: flex;
+    flex-direction: column; /* Organisation en colonne pour chaque lot */
+    gap: 15px;
+  }
+
+}
+
+/* Grands téléphones et petites tablettes */
+@media (min-width: 481px) and (max-width: 768px) {
+
+  .cards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Deux colonnes */
+    gap: 10px; /* Espacement entre les colonnes et lignes */
+    justify-content: center;
+  }
+
+  .card {
+    width: 100%; /* S'adapte à la largeur disponible */
+    height: auto; /* Ajuste automatiquement la hauteur */
+    padding: 10px; /* Réduction des marges internes */
+    border-radius: 10px; /* Coins légèrement arrondis */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    margin-bottom: 0; /* Réduction des espaces entre les cartes */
+  }
+
+  .card-img-topp {
+    height: 6rem; /* Taille d'image réduite */
+    border-radius: 5px; /* Coins légèrement arrondis */
+  }
+
+  .card-text {
+    font-size: 10px; /* Taille de texte réduite */
+    line-height: 1.4; /* Améliore la lisibilité */
+  }
+
+  .card-title {
+    
+    font-size: 14px; /* Taille de titre adaptée */
+  }
+  .card.rounded-card.container {
+    padding-top: 0px;
+    padding-bottom:0px;
+    border: #007bff;
+    width:9rem;
+    height:9rem;
+    border: 4px solid; 
+    border-radius: 20px;
+  }
+  .card-wrapper {
+    display: flex;
+    gap: 50px; /* Espacement entre les deux lots */
+    justify-content: center; /* Centrer horizontalement */
+    align-items: flex-start; /* Aligner les colonnes au sommet */
+  }
+  
+  .card-position,
+  .card-position1 {
+    display: flex;
+    flex-direction: column; /* Organisation en colonne pour chaque lot */
+    gap: 15px;
+  }
+}
+
+/* Tablettes et écrans plus grands */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .cards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Deux colonnes */
+    gap: 10px; /* Espacement entre les colonnes et lignes */
+    justify-content: center;
+  }
+
+  .card {
+    width: 100%; /* S'adapte à la largeur disponible */
+    height: auto; /* Ajuste automatiquement la hauteur */
+    padding: 10px; /* Réduction des marges internes */
+    border-radius: 10px; /* Coins légèrement arrondis */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    margin-bottom: 0; /* Réduction des espaces entre les cartes */
+  }
+
+  .card-img-topp {
+    height: 7rem; /* Taille d'image réduite */
+    border-radius: 5px; /* Coins légèrement arrondis */
+  }
+
+  .card-text {
+    font-size: 14px; /* Taille de texte réduite */
+    line-height: 1.4; /* Améliore la lisibilité */
+  }
+
+  .card-title {
+    
+    font-size: 14px; /* Taille de titre adaptée */
+  }
+  .card.rounded-card.container {
+    padding-top: 0px;
+    padding-bottom:0px;
+    border: #007bff;
+    width:12rem;
+    height:12rem;
+    border: 4px solid; 
+    border-radius: 20px;
+  }
+  .card-wrapper {
+    display: flex;
+    gap: 300px; /* Espacement entre les deux lots */
+    justify-content: center; /* Centrer horizontalement */
+    align-items: flex-start; /* Aligner les colonnes au sommet */
+  }
+  
+  .card-position,
+  .card-position1 {
+    display: flex;
+    flex-direction: column; /* Organisation en colonne pour chaque lot */
+    gap: 15px;
+  }
+
 }
 

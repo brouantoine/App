@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.db.models import Q
-
+from django.contrib.auth.password_validation import validate_password
 from .models import Profile
 
 
@@ -28,40 +28,6 @@ class CustomUserCreationForm(UserCreationForm):
         label='Numéro de téléphone ou adresse e-mail',
         widget=forms.TextInput(attrs={'class': 'form-control'}),
     )
-    EDUCATION_LEVEL_CHOICES = [
-        ('Seconde', '2nde A'), ('Seconde', '2nde C'), ('Seconde', '2nde G2'),
-        ('Premiere', '1ère A'), ('Premiere', '1ère D'), ('Premiere', '1ère C'),
-        ('Premiere', '1ère G2'), ('Terminale', 'Terminale A'), ('Terminale', 'Terminale C'),
-        ('Terminale', 'Terminale D'), ('Terminale', 'Terminale G2'), ('cours preparatoir1', 'CP1'),
-        ('cours preparatoir1', 'CP2'), ('cours élémentaire1', 'CE1'), ('cours élémentaire2', 'CE2'),
-        ('Cours moyen1', 'CM1'), ('Cours moyen2', 'CM2'), ('Sixième', '6eme'),
-        ('Cinquième', '5eme'), ('quartrième', '4eme'), ('Troixième', '3eme'),
-    ]
-    education_level = forms.ChoiceField(
-        required=True,
-        label="Niveau d'étude",
-        widget=forms.Select(attrs={'class': 'form-control'}),
-        choices=EDUCATION_LEVEL_CHOICES
-    )
-    city = forms.ChoiceField(
-        required=True,
-        label='Ville',
-        widget=forms.Select(attrs={'class': 'form-control'}),
-        choices=[
-            ('Abidjan', 'Abidjan'), ('Bouaké', 'Bouaké'), ('Daloa', 'Daloa')
-            # Ajoutez toutes les villes ici
-        ]
-    )
-    commune = forms.CharField(
-        required=True,
-        label='Commune',
-        widget=forms.TextInput(attrs={'class': 'form-control'}),
-    )
-    district = forms.CharField(
-        required=True,
-        label='Quartier',
-        widget=forms.TextInput(attrs={'class': 'form-control'}),
-    )
     password1 = forms.CharField(
         label='Mot de passe',
         widget=forms.PasswordInput(attrs={'class': 'form-control'}),
@@ -75,7 +41,7 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('username', 'name', 'last_name', 'email_or_phone', 'education_level', 'city', 'commune', 'district', 'password1', 'password2')
+        fields = ('username', 'name', 'last_name', 'email_or_phone', 'password1', 'password2')
 
     def clean_username(self):
         username = self.cleaned_data.get('username')
@@ -99,9 +65,21 @@ class CustomUserCreationForm(UserCreationForm):
             Profile.objects.create(
                 user=user,
                 phone_number=self.cleaned_data['email_or_phone'],
-                education_level=self.cleaned_data['education_level'],
-                city=self.cleaned_data['city'],
-                commune=self.cleaned_data['commune'],
-                district=self.cleaned_data['district']
             )
         return user
+# authentication/forms.py
+
+from django.contrib.auth.forms import SetPasswordForm
+from django.core.exceptions import ValidationError
+from django.utils.translation import gettext as _
+
+class CustomSetPasswordForm(SetPasswordForm):
+    def clean_new_password1(self):
+        password1 = self.cleaned_data.get('new_password1')
+        try:
+            # Valider le mot de passe
+             validate_password(password1, self.user)
+        except ValidationError as error:
+            # Stocker l'erreur pour l'afficher après soumission
+            self.add_error('new_password1', error)
+        return password1

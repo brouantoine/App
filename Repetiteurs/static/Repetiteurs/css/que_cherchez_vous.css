@@ -143,11 +143,14 @@ h2{
     50% { color: #4133ff; } /* Bleu moyen plus clair */
     75% { color: #ff0000; } /* Bleu clair */
     100% { color: #007bff; } /* Retour au bleu de base */
-
-    
-}@keyframes colorChanges {
+}
+@keyframes colorChanges {
     0% { color: #ff0000; } /* Bleu de base */
     25% { color: #d4d4d4; } /* Bleu plus foncé */
     50% { color: #f7fa45; } /* Bleu moyen plus clair */
     100% { color: #ffffff; } /* Bleu clair */
 }
+
+.btn:hover {
+    background-color: #1e96fb;
+  }

@@ -1,10 +1,7 @@
-{% extends "Repetiteurs/base.html" %}
+{% extends "Repetiteurs/page_de_base/base/base.html" %} 
 {% load static %}
 {% block content %}
 <link rel="stylesheet" href="{% static "authentication/css/login.css" %}">
-<style>
-
-</style>
 
 <div class="login-container">
     <div class="login-card">
@@ -20,7 +17,8 @@
             {{ form.as_p }}
             <input type="submit" value="Se connecter" class="login-button">
         </form>
+        <p>Mot de passe oublié? </p>
+        <a href="{% url 'authentication:password_reset' %}" class="action-button">Réinitialiser le mot de passe</a>
     </div>
-    
 </div>
 {% endblock %}

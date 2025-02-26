@@ -1,0 +1,151 @@
+{% extends "Repetiteurs/page_de_base/base/base.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'Repetiteurs/css/verifier_demande.css' %}">
+
+<div class="message-container">
+    {% if error %}
+        <p class="empty-message">{{ error }}</p>
+    {% else %}
+        <h2>Vos messages</h2>
+        <ul class="message-list">
+            {% for message in messages %}
+                <li class="message-item">
+                        <strong>De : 
+                            {% if message.sender %}
+                                {{ message.sender.username }}
+                            {% else %}
+                                Inconnu
+                            {% endif %}
+                        </strong>
+                        <p>{{ message.content }}</p>
+                        <span class="date">{{ message.date_sent|date:"d/m/Y H:i" }}</span>
+                    {% if message.sender %}
+                        <button class="btn-open-dialog" data-recipient-id="{{ message.sender.id }}">
+                            Ouvrir la conversation
+                        </button>
+                    {% endif %}
+                </li>
+            {% empty %}
+                <p class="empty-message">Aucun message reçu.</p>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+
+<div id="dialog-box" class="dialog hidden">
+    <div class="dialog-content">
+        <div class="dialog-header">
+            <h3>Conversation</h3>
+            <button id="close-dialog" class="close-btn">&times;</button>
+        </div>
+        <div id="messages-container" class="messages-container">
+            <p>Chargement des messages...</p>
+        </div>
+        <form id="message-form">
+            {% csrf_token %}
+            <textarea id="message-input" name="content" placeholder="Écrivez un message..." required></textarea>
+            <button type="submit">Envoyer</button>
+        </form>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const dialog = document.getElementById('dialog-box');
+        const closeDialog = document.getElementById('close-dialog');
+        const messageForm = document.getElementById('message-form');
+        const messagesContainer = document.getElementById('messages-container');
+        let currentRecipientId = null;
+
+        // Fonction pour charger les messages d'une conversation
+        const loadConversation = (recipientId) => {
+            messagesContainer.innerHTML = '<p>Chargement...</p>';
+            fetch(`/get_conversation/${recipientId}/`)
+                .then(response => response.json())
+                .then(data => {
+                    messagesContainer.innerHTML = '';
+                    data.forEach(msg => {
+                        const msgElement = document.createElement('div');
+                        msgElement.className = msg.sender__username === '{{ user.username }}' ? 'message sent' : 'message received';
+                        msgElement.innerHTML = `
+                            <strong>${msg.sender__username}:</strong>
+                            <p>${msg.content}</p>
+                            <span class="date">${new Date(msg.date_sent).toLocaleString()}</span>
+                        `;
+                        messagesContainer.appendChild(msgElement);
+
+                        // Marquer le message comme lu si ce n'est pas déjà fait
+                        if (!msg.is_read) {
+                            markAsRead(msg.id);
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error('Erreur lors du chargement des messages:', error);
+                    messagesContainer.innerHTML = '<p>Erreur lors du chargement des messages.</p>';
+                });
+        };
+
+        // Fonction pour marquer un message comme lu
+        const markAsRead = (messageId) => {
+            fetch(`/mark_as_read/${messageId}/`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    console.log('Message marqué comme lu.');
+                } else {
+                    console.error('Erreur:', data.error);
+                }
+            })
+            .catch(error => {
+                console.error('Erreur réseau:', error);
+            });
+        };
+
+        // Ouvrir la boîte de dialogue
+        document.querySelectorAll('.btn-open-dialog').forEach(button => {
+            button.addEventListener('click', () => {
+                currentRecipientId = button.getAttribute('data-recipient-id');
+                dialog.classList.remove('hidden');
+                loadConversation(currentRecipientId);
+            });
+        });
+
+        // Fermer la boîte de dialogue
+        closeDialog.addEventListener('click', () => {
+            dialog.classList.add('hidden');
+        });
+
+        // Envoyer un message
+        messageForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const formData = new FormData(messageForm);
+            fetch(`/repondre_message/${currentRecipientId}/`, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRFToken': formData.get('csrfmiddlewaretoken'),
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    loadConversation(currentRecipientId); // Recharger la conversation
+                    messageForm.reset();
+                } else {
+                    alert(data.error || 'Erreur lors de l\'envoi du message.');
+                }
+            })
+            .catch(error => {
+                console.error('Erreur lors de l\'envoi du message:', error);
+            });
+        });
+    });
+</script>
+{% endblock %}
+    

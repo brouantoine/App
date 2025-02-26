@@ -1,0 +1,20 @@
+{% extends "Repetiteurs/page_de_base/base/base.html" %} 
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'Repetiteurs/css/profiles_enseignants.css' %}">
+<H2 class='titre'>Quel profil vous correspond-t-il le mieux?</H2>
+<div class="disposition">
+        <div class="cards-container">
+            {% for enseignant in enseignants %}
+                <div class="card">
+                    <div class="emoji-avatar">👩‍🏫</div>
+                    <h3> PROF {{ enseignant.nom }} {{ enseignant.prenom }}</h3>
+                    <p><strong>Matières :</strong> {{ enseignant.matieres }}</p>
+                    <p><strong>Contacts :</strong> {{ enseignant.contacts }}</p>
+                    <a href="{% url 'Repetiteurs:enseignants_details' enseignant.id %}" class="action-button">Voir</a>
+                </div>
+            {% endfor %}
+        </div>
+</div>
+
+{% endblock %}

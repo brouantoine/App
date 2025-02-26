@@ -1,0 +1,52 @@
+
+
+{% extends "Repetiteurs/page_de_base/base/base.html" %} 
+{% load static %}
+{% block content %}
+
+
+      <!-- Formulaire pour créer un nouveau groupe -->
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Créer un nouveau groupe</h5>
+            <form>
+              <!-- Champ pour le nom du groupe -->
+              <div class="form-group">
+                <label for="nomGroupe">Nom du groupe</label>
+                <input type="text" class="form-control" id="nomGroupe" placeholder="Entrez le nom du groupe">
+              </div>
+              <!-- Champ pour les matières étudiées -->
+              <div class="form-group">
+                <label for="matieres">Matières étudiées</label>
+                <input type="text" class="form-control" id="matieres" placeholder="Entrez les matières étudiées">
+              </div>
+              <!-- Champ pour la localisation -->
+              <div class="form-group">
+                <label for="localisation">Localisation</label>
+                <input type="text" class="form-control" id="localisation" placeholder="Entrez la localisation">
+              </div>
+              <!-- Champ pour l'emploi du temps -->
+              <div class="form-group">
+                <label for="emploiTemps">Emploi du temps</label>
+                <input type="text" class="form-control" id="emploiTemps" placeholder="Entrez l'emploi du temps">
+              </div>
+              <!-- Champ pour le contact du chef de groupe -->
+              <div class="form-group">
+                <label for="contactChef">Contact du chef de groupe</label>
+                <input type="text" class="form-control" id="contactChef" placeholder="Entrez le contact du chef de groupe">
+              </div>
+              <!-- Champ pour le nom du chef de groupe -->
+              <div class="form-group">
+                <label for="nomChef">Nom du chef de groupe</label>
+                <input type="text" class="form-control" id="nomChef" placeholder="Entrez le nom du chef de groupe">
+              </div>
+              <!-- Bouton pour soumettre le formulaire -->
+              <button type="submit" class="btn btn-primary">Créer le groupe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+{% endblock %}

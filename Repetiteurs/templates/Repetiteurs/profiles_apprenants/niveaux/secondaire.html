@@ -1,0 +1,26 @@
+
+<div class="options">
+    <!-- Option 1: Créer un profil -->
+     {% load static %}
+     <link rel="stylesheet" href="{% static "Repetiteurs/css/que_cherchez_vous.css" %}">
+    <div class="option-card">
+        <h2>Créer un Profil</h2>
+        <p>Inscrivez-vous pour être visible par les renseignants et recevoir des propositions d'aide dans les matières de votre choix.</p>
+        <a href="{% url 'Repetiteurs:creer_profile'%}?source=creer_profil_apprenant" class="action-button">Créer</a>
+    </div>
+
+    <!-- Option 2: Rechercher un répétiteur -->
+    <div class="option-card">
+        <h2>Rechercher un Répétiteur</h2>
+        <p>Parcourez les profils des répétiteurs qualifiés et trouvez celui qui correspond le mieux à vos besoins.</p>
+        <a href="{% url 'Repetiteurs:profiles_enseignants' %}" class="action-button">Rechercher</a>
+    </div>
+
+    <!-- Option 3: Vérifier ses demandes -->
+    <div class="option-card">
+        <h2>Vérifier mes Demandes</h2>
+        <p>Suivez l'état de vos demandes d'aide et les réponses des répétiteurs.</p>
+        <a href="{% url 'Repetiteurs:verifier_demande' %}" class="action-button">Voir</a>
+    </div>
+</div>
+</div>

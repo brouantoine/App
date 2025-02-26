@@ -1,0 +1,135 @@
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    z-index: 2;
+}
+
+/* Conteneur des cartes */
+.cards-container {
+    z-index: 1;
+    display: flex; /* Disposition horizontale */
+    flex-wrap: nowrap; /* Pas de retour à la ligne */
+    gap: 20px; /* Espacement entre les cartes */
+}
+
+/* Carte */
+.card {
+    background-color: #ececec;
+    border-radius: 40px;  
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 250px;
+    width: 200px; /* Largeur fixe pour une meilleure mise en page horizontale */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0; /* Empêche les cartes de rétrécir */
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Avatar emoji */
+.card .emoji-avatar {
+    font-size: 70px;
+    margin-bottom: 15px;
+    color: #6c63ff;
+    margin-top: -80px;
+}
+
+/* Titre et contenu */
+.card h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 1em;
+    color: #555;
+    margin: 5px 0;
+    line-height: 1.5;
+}
+
+/* Bouton d'action */
+.action-button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #6c63ff;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+/* Message si aucun profil */
+.no-profiles {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
+/* Responsivité */
+@media (max-width: 768px) {
+    .cards-container {
+        flex-wrap: wrap; /* Les cartes passent à la ligne sur petits écrans */
+        justify-content: center;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+.disposition {
+    z-index: 1;
+    display: flex; /* Utilisation de Flexbox */
+    flex-direction: row; /* Aligne les éléments horizontalement */
+    justify-content: center; /* Centre horizontalement les éléments */
+    align-items: flex-start; /* Centre verticalement (facultatif) */
+    gap: 10px; /* Espacement entre les div */
+    min-height: 100vh; /* Assure un alignement même avec peu d'éléments */
+    padding-top: 85px;
+}
+.titre{
+    margin: 15px;
+    animation: colorChange 5s infinite;
+    text-align: center;
+    font-family: 'Arial', sans-serif; /* Choisissez une police de caractères appropriée */
+    font-weight: bold; /* Mettez en gras pour plus de présence */
+    color: #333; /* Couleur du texte sombre pour une bonne lisibilité */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ajoutez une ombre portée subtile */
+}
+
+@keyframes colorChange {
+    0% { color: #007bff; } /* Bleu de base */
+    25% { color: #000000; } /* Bleu plus foncé */
+    50% { color: #4133ff; } /* Bleu moyen plus clair */
+    75% { color: #ff0000; } /* Bleu clair */
+    100% { color: #007bff; } /* Retour au bleu de base */
+} 
+.action-button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #1100ff;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.action-button:hover {
+    background-color: #1e96fb;
+    text-decoration: none;
+    color: white;
+}

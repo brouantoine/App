@@ -1,0 +1,168 @@
+/* Style général pour le container de profil */
+.Profile_container {
+    margin: 0 auto; /* Centre horizontalement */
+    display: flex;
+    justify-content: center; /* Centre le contenu horizontalement */
+    align-items: center; /* Centre le contenu verticalement */
+    flex-direction: row; /* Alignement par défaut */
+    gap: 30px;
+    padding: 40px;
+    min-height: 50vh; /* Hauteur minimale de la page */
+    max-width: 800px; /* Augmenté pour les tablettes */
+    background-color: #d6d5d5;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 1);
+}
+
+/* Style pour le profil */
+.profile {
+    margin-top: 20px;
+    width: 48%; /* Réduction pour mieux s'adapter */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile h2 {
+    font-size: 1.8rem; /* Taille légèrement réduite */
+    color: #34495e;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+
+.profile p {
+    font-size: 1rem; /* Texte légèrement réduit */
+    color: #7f8c8d;
+    margin: 10px 0;
+}
+
+.profile p strong {
+    color: #2c3e50;
+}
+
+/* Style pour la section de message */
+.message-form {
+    width: 48%; /* Réduction pour mieux s'adapter */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.message-form h3 {
+    font-size: 1.4rem; /* Taille légèrement réduite */
+    color: #34495e;
+    margin-bottom: 15px;
+}
+
+.message-form textarea {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+    resize: none;
+    transition: border-color 0.3s ease;
+}
+
+.message-form textarea:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.message-form button {
+    width: auto; /* Adapte automatiquement la largeur */
+    padding: 8px;
+    background-color: #1100ff;
+    color: #fff;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    height: 40px;
+    align-self: center; /* Centre le bouton */
+    margin: 20px auto 0; /* Ajoute une marge centrée */
+}
+
+.message-form button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+.message-form button:active {
+    transform: translateY(1px);
+}
+
+/* Ajout d'animations et transitions */
+.profile, .message-form {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile:hover, .message-form:hover {
+    transform: scale(1.03); /* Légère animation pour les tablettes */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.Profile_container:hover {
+    transform: scale(1.01);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsivité pour tablettes */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .Profile_container {
+        flex-direction: row; /* Conserve l'alignement horizontal */
+        gap: 20px;
+        margin-top: 20px; /* Ajoute un peu d'espace en haut */
+        padding: 30px; /* Réduction du padding */
+    }
+
+    .profile, .message-form {
+        width: 45%; /* Ajuste la largeur pour une meilleure répartition */
+    }
+
+    .profile h2 {
+        font-size: 1.6rem; /* Réduit légèrement la taille des titres */
+    }
+
+    .message-form textarea {
+        height: 140px; /* Réduit légèrement la hauteur */
+    }
+
+    .message-form h3 {
+        font-size: 1.3rem; /* Réduit légèrement la taille des sous-titres */
+    }
+}
+
+/* Responsivité pour mobiles */
+@media (max-width: 768px) {
+    .Profile_container {
+        flex-direction: column; /* Empile les éléments verticalement */
+        gap: 20px;
+        margin-top: 10px; /* Réduit la marge supérieure */
+        padding: 20px; /* Réduit le padding */
+    }
+
+    .profile, .message-form {
+        width: 100%; /* Prend toute la largeur */
+    }
+
+    .profile {
+        margin-bottom: 20px; /* Ajoute un espacement sous le profil */
+    }
+
+    .profile h2 {
+        font-size: 1.5rem; /* Réduit la taille de la police sur mobile */
+    }
+
+    .message-form h3 {
+        font-size: 1.3rem; /* Réduit la taille de la police */
+    }
+
+    .message-form textarea {
+        height: 120px; /* Réduit la hauteur de la zone de texte */
+    }
+}

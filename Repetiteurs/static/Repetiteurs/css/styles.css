@@ -77,3 +77,6 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Ajouter une ombre */
     transform: scale(0.95); /* Réduire légèrement la taille */
   }
+  .btn:hover {
+    background-color: #1e96fb;
+  }

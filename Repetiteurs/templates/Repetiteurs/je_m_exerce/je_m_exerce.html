@@ -1,0 +1,45 @@
+{% extends "Repetiteurs/page_de_base/base/base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+<link rel="stylesheet" href="{% static 'Repetiteurs/css/je_m_exerce.css' %}">
+<div class="container">
+    <div class="je-m-exerce-section">
+        <h1 class="je-m-exerce-text">Je m'exerce</h1>
+        <img class="icon-image" src="{% static 'Repetiteurs/medias/2928034.jpg' %}" alt="Icone d'étudiant">
+    </div> 
+    <div class="je-m-exercer-div"> 
+        <p class='tittle_p'>Retrouvez ici des documents
+            de tout types, des fascicules et aussi</br> des exercices corrigés. 
+            Vous avez la possibilité de télécharger </br>et aussi d'y ajouter des documents. Bonne année scolaire !</p>
+    </div> 
+    <div class="document-list">
+        {% for document in documents %}
+            <div class="document-item">
+                <p class="p_tittle">{{ document.title }}</p>
+                <a href="{{ document.file.url }}" download class="pdf-icon">
+                    <i class="bi bi-file-earmark-pdf text-danger" style="font-size: 4rem;"></i>
+                </a>
+                <div class="p_description_div">
+                    <p class="p_description">{{ document.description }}</p>
+                </div>
+                <div class="document-info">
+                    <span class="popularity">{{ document.popularity }}% ({{ document.popularity }})</span>
+                    <span class="page-count">{{ document.page_count }} pages</span>
+                </div>
+                <a href="{{ document.file.url }}" download class="btn btn-download">
+                    Télécharger
+                </a>
+            </div>
+        {% empty %}
+            <p>Aucun document disponible pour le moment.</p>
+        {% endfor %}
+    </div>
+    <div class="add-document">
+        <a href="{% url 'Repetiteurs:ajouter_document' %}" class="btn btn-primary">
+            Ajouter un document
+        </a>
+    </div>
+</div>
+{% endblock %}

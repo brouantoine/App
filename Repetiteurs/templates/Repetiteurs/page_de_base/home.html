@@ -1,0 +1,140 @@
+{% extends "Repetiteurs/page_de_base/base/base.html" %} 
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static "Repetiteurs/css/home.css"%}">
+
+<!-- Header Section -->
+<div id="header" class="text-center pict">
+
+  <!-- Background Image with Marquee -->
+  <div id="background-image" class="mb-1" style="background-image: url('https://media.istockphoto.com/id/950614324/fr/photo/fille-de-l%C3%A9cole-d%C3%A9criture-en-classe.jpg?s=612x612&w=0&k=20&c=sJy5ky91FqwBvhmG2se4ZRHtPJx7sSJPCwbMe7R0GtE='); background-size: cover; background-position: center; width: 100%; height: 500px;">
+    <div class="marquee">
+      <span>Nous vous proposons des solutions pour une année scolaire très réussie ! Creez un Profil pour vous faire voir</span>
+         <!-- Cards Section -->
+         <div class="card-wrapper">
+          <div class="card-position">
+            <a href="{% url "Repetiteurs:que_cherchez_vous" %}?source=primaire" class="col-md-3 mt-3 text-decoration-none">
+              <div class="card rounded-card container">
+                <img class="card-img-top mt-2" src="{% static 'Repetiteurs/medias/IMAGE1 (2).jpg' %}" alt="Card image cap" style="border-radius: 30px;">
+                <div class="card-body">
+                  <p class="card-text">Je suis élève du primaire</p>
+                </div>
+              </div>
+            </a>
+            <a href="{% url "Repetiteurs:que_cherchez_vous" %}?source=secondaire" class="col-md-3 mt-3 text-decoration-none">
+              <div class="card rounded-card container">
+                <img class="card-img-top mt-2 mb-0" src="{% static 'Repetiteurs/medias/IMAGE1 (1).jpg' %}" alt="Card image cap" style="border-radius: 30px;">
+                <div class="card-body">
+                  <p class="card-text">Je suis au second cycle</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        
+          <div class="card-position1">
+            <a href="{% url "Repetiteurs:que_cherchez_vous" %}?source=etudiant" class="col-md-3 mt-3 text-decoration-none">
+              <div class="card rounded-card container">
+                <img class="card-img-top mt-2" src="{% static 'Repetiteurs/medias/IMAGE4.png' %}" alt="Card image cap" style="border-radius: 30px;">
+                <div class="card-body">
+                  <p class="card-text">Je suis au supérieur</p>
+                </div>
+              </div>
+            </a>
+            <a href="{% url "Repetiteurs:que_cherchez_vous" %}?source=enseignant" class="col-md-3 mt-3 text-decoration-none">
+              <div class="card rounded-card container">
+                <img class="card-img-top mt-2" src="{% static 'Repetiteurs/medias/IMAGE1 (3).jpg' %}" alt="Card image cap" style="border-radius: 30px;">
+                <div class="card-body">
+                  <p class="card-text">Je recherche un élève</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>        
+  </div>
+  </div>
+<!-- Interest Section -->
+<div id="interest-section" class="mb-2 mt-2 container">
+  <h3 class="slide-in">Quels sont les éléments susceptibles de vous intéresser?</h3>
+</div>
+
+<!-- Image Slider Section -->
+<div id="image-slider" class="mb-4 mt-5 container">
+  <div class="image-container" style="display: flex; justify-content: center; align-items: center; width: 100%; height: 500px;">
+    <div class="text-overlay"><a href="#" class="btn btn-warning">Visitez</a></div>
+    <img class="bg-image" src="{% static 'Repetiteurs/medias/portrait-male-teacher-helping-young-african-american-schoolgirl-struggling-with-task-class-scaled.jpg'%}" alt="Image 1">
+    <div class="text-overlay"><a href="#" class="btn btn-warning">Visitez</a></div>
+    <img class="bg-image" src="{% static 'Repetiteurs/medias/teacher-2985521_1280.jpg'%}" alt="Image 2">
+    <div class="text-overlay"><a href="#" class="btn btn-warning">Visitez</a></div>
+    <img class="bg-image" src="{% static 'Repetiteurs/medias/engineer-4927719_960_720.jpg' %}" alt="Image 3">
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var images = document.querySelectorAll('.image-container .bg-image');
+    var index = 0;
+    images[index].style.display = 'block';
+    setInterval(function() {
+      images[index].style.display = 'none';
+      index = (index + 1) % images.length;
+      images[index].style.display = 'block';
+    }, 3000);
+  });
+</script>
+
+<!-- Cards Section 2 -->
+<div id="cards-section-2" class="container mt-5">
+  <div class="row">
+    <div class="col-lg-4 col-md-6 col-12 mb-4">
+      <div class="card shadow" style="width: 100%; height: 100%;">
+        <img src="{% static 'Repetiteurs/medias/istockphoto-1443305526-612x612.jpg' %}" class="card-img-top" alt="Groupe d'étude" style="border-radius: 10px; height: 16rem;">
+        <div class="card-body text-center">
+          <h5 class="card-title">Groupe d'étude</h5>
+          <p class="card-text">Je recherche un groupe d'étude près de chez moi avec des élèves d'autres établissements.</p>
+          <a href="{% url 'Repetiteurs:groupeEtude' %}" class="btn btn-success">Consulter</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 col-12 mb-4">
+      <div class="card shadow" style="width: 100%; height: 100%;">
+        <img src="{% static 'Repetiteurs/medias/business-5475661_1280.jpg' %}" class="card-img-top" alt="Je m'exerce" style="border-radius: 10px; height: 16rem;">
+        <div class="card-body text-center">
+          <h5 class="card-title">Je m'exerce</h5>
+          <p class="card-text">Je recherche des fascicules ou des annales pour mieux m'exercer.</p>
+          <a href="{% url "Repetiteurs:je_m_exerce" %}" class="btn btn-success">Consulter</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 col-12 mb-4">
+      <div class="card shadow" style="width: 100%; height: 100%;">
+        <img src="{% static 'Repetiteurs/medias/distance-learning-6974511_1280.jpg' %}" class="card-img-top" alt="Divertissement" style="border-radius: 10px; height: 16rem;">
+        <div class="card-body text-center">
+          <h5 class="card-title">Divertissement</h5>
+          <p class="card-text">Jouez à des jeux éducatifs avec des amis et lancez-vous des défis.</p>
+          <a href="#" class="btn btn-success">Consulter</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 col-12 mb-4">
+      <div class="card shadow" style="width: 100%; height: 100%;">
+        <img src="{% static 'Repetiteurs/medias/istockphoto-1435014643-612x612.jpg' %}" class="card-img-top" alt="Mon IA" style="border-radius: 10px; height: 16rem;">
+        <div class="card-body text-center">
+          <h5 class="card-title">Mon IA</h5>
+          <p class="card-text">Besoin de conseils pour mieux s'organiser ? Engagez une discussion avec votre IA personnalisée.</p>
+          <a href="#" class="btn btn-success">Consulter</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 col-12 mb-4">
+      <div class="card shadow" style="width: 100%; height: 100%;">
+        <img src="{% static 'Repetiteurs/medias/istockphoto-1369291049-612x612.jpg' %}" class="card-img-top" alt="Aller plus loin" style="border-radius: 10px; height: 16rem;">
+        <div class="card-body text-center">
+          <h5 class="card-title">Aller plus loin</h5>
+          <p class="card-text">Échangez avec notre équipe et trouvez des solutions à vos préoccupations.</p>
+          <a href="#" class="btn btn-success">Consulter</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-y8^n1al7!ft^y18+0a4)aqws6)421@g%_rh7lhf_hg+ri4@rcw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [ '192.168.56.1', '127.0.0.1', 'localhodt', '*' , '192.168.143.155']
+ALLOWED_HOSTS = [ '192.168.56.1', '127.0.0.1', 'localhodt', '*' , '192.168.91.155','192.168.56.1']
 
 
 # Application definition
@@ -51,6 +51,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'PROJECT1.urls'
+INSTALLED_APPS += ['channels']
+ASGI_APPLICATION = 'PROJECT1.asgi.application'
+
 
 TEMPLATES = [
     {
@@ -77,7 +80,7 @@ WSGI_APPLICATION = 'PROJECT1.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'utilisateurs',    # Nom de votre base de données PostgreSQL
+        'NAME': 'zentechnology',    # Nom de votre base de données PostgreSQL
         'USER': 'postgres',        # Nom d'utilisateur PostgreSQL
         'PASSWORD':'admin',    # Mot de passe PostgreSQL
         'HOST': '127.0.0.1',    # Adresse IP où PostgreSQL est accessible (localhost ici)
@@ -120,9 +123,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS =[
-    os.path.join( BASE_DIR, 'static')
+    os.path.join( BASE_DIR / "static",)
 ]
 
 # Default primary key field type
@@ -132,3 +135,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = '/loging_required/'
 CSRF_COOKIE_SECURE = False  # Pour le développement local avec HTTP, sinon True en production
 CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000']  # Ajoute l'URL du site pour des environnements particuliers
+
+# Chemin pour les fichiers médias
+MEDIA_URL = 'media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# envoi d'email
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'brouantoineassanvo@gmail.com'
+EMAIL_HOST_PASSWORD = 'sgkt ljxu gxvt vfjf'

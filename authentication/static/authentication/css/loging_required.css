@@ -126,3 +126,9 @@
     80% { transform: translate(30px, 10px); }
     100% { transform: translate(0, 0); }
 }
+
+
+
+.btn:hover {
+    background-color: #1e96fb;
+  }

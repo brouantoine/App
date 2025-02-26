@@ -1,0 +1,62 @@
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static "Repetiteurs/css/creer_profile.css" %}">
+<div class="profile-form-container">
+    <h1>Créer votre Profil</h1>
+    
+    <form action="" method="post">
+        {% csrf_token %}
+        
+        <!-- Informations personnelles -->
+        <div class="form-group">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom" value="{{ initial_data.nom }}" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="prenom">Prénom</label>
+            <input type="text" id="prenom" name="prenom" value="{{ initial_data.prenom }}" required>
+        </div>
+        <!-- Niveau scolaire ou spécialité -->
+        <div class="form-group">
+            <label for="niveau">Spécialité</label>
+            <input type="text" id="niveau" name="niveau" placeholder="Ex: Lycée, Terminale, Université" required>
+        </div>
+        <!-- Contacts -->
+        <div class="form-group">
+            <label for="contacts">Numero de téléphone</label>
+            <input type="text" id="contacts" name="contacts" placeholder="Ex: 0700000000" required>
+        </div>        
+        
+        <!-- Experiances -->
+        <div class="form-group">
+            <label for="experiences">Année d'Expériances</label>
+            <input type="text" id="experiences" name="experiences" placeholder="Ex: 5 ans et Plus" required>
+        </div>
+        
+        <!-- Niveau scolaire ou spécialité -->
+        <div class="form-group">
+            <label for="matieres">Spécialité</label>
+            <select id="matieres" name="matieres" required>
+                <option value="sciences">Sciences</option>
+                <option value="lettres">Lettres</option>
+                <option value="les deux">Les deux</option>
+            </select>
+        </div>
+        <!-- Modalités des sessions -->
+        <div class="form-group">
+            <label for="modalites">Modalités de session</label>
+            <select id="modalites" name="modalites" required>
+                <option value="en ligne">En ligne</option>
+                <option value="en presentiel">En présentiel</option>
+                <option value="les deux">Les deux</option>
+            </select>
+        </div>
+
+        <!-- Bouton de soumission -->
+        <div class="form-group">
+            <button type="submit" class="submit-button">Créer mon profil</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
